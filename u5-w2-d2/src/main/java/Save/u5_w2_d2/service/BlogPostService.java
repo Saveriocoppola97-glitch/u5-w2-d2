@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import Save.u5_w2_d2.model.BlogPost;
 import Save.u5_w2_d2.repository.BlogPostRepository;
+import Save.u5_w2_d2.payload.BlogPostPayload;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,27 +15,42 @@ public class BlogPostService {
     @Autowired
     private BlogPostRepository blogPostRepository;
 
-    // Metodo per salvare un post aggiungendo la logica della cover
-    public BlogPost save(BlogPost body) {
-        body.setCover("https://picsum.photos/200/300");
-        return blogPostRepository.save(body);
+
+    public BlogPost save(BlogPostPayload body) {
+        BlogPost newPost = new BlogPost();
+
+
+        newPost.setCategoria(body.getCategoria());
+        newPost.setTitolo(body.getTitolo());
+        newPost.setContenuto(body.getContenuto());
+        newPost.setTempoDiLettura(body.getTempoDiLettura());
+
+
+        newPost.setCover("https://picsum.photos/200/300");
+
+
+        return blogPostRepository.save(newPost);
     }
 
     public List<BlogPost> findAll() {
         return blogPostRepository.findAll();
     }
 
-
     public BlogPost findById(UUID id) {
         return blogPostRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Post non trovato"));
     }
 
-    public BlogPost update(UUID id, BlogPost body) {
+
+    public BlogPost update(UUID id, BlogPostPayload body) {
         BlogPost found = this.findById(id);
+
+
         found.setTitolo(body.getTitolo());
         found.setContenuto(body.getContenuto());
         found.setCategoria(body.getCategoria());
+        found.setTempoDiLettura(body.getTempoDiLettura());
+
         return blogPostRepository.save(found);
     }
 

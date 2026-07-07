@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import Save.u5_w2_d2.model.BlogPost;
 import Save.u5_w2_d2.service.BlogPostService;
 import org.springframework.http.HttpStatus;
+import Save.u5_w2_d2.payload.BlogPostPayload;
 
 import java.util.List;
 import java.util.UUID;
@@ -24,7 +25,8 @@ public class BlogPostController {
 
 
     @PostMapping
-    public BlogPost save(@RequestBody BlogPost body) {
+    @ResponseStatus(HttpStatus.CREATED) // Ottima pratica usare 201 per la creazione
+    public BlogPost save(@RequestBody BlogPostPayload body) {
         return blogPostService.save(body);
     }
 
@@ -36,7 +38,7 @@ public class BlogPostController {
 
 
     @PutMapping("/{id}")
-    public BlogPost update(@PathVariable UUID id, @RequestBody BlogPost body) {
+    public BlogPost update(@PathVariable UUID id, @RequestBody BlogPostPayload body) {
         return blogPostService.update(id, body);
     }
 
