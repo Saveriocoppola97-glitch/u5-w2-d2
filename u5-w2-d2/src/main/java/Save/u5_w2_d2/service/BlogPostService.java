@@ -19,16 +19,11 @@ public class BlogPostService {
     public BlogPost save(BlogPostPayload body) {
         BlogPost newPost = new BlogPost();
 
-
         newPost.setCategoria(body.getCategoria());
         newPost.setTitolo(body.getTitolo());
         newPost.setContenuto(body.getContenuto());
         newPost.setTempoDiLettura(body.getTempoDiLettura());
-
-
         newPost.setCover("https://picsum.photos/200/300");
-
-
         return blogPostRepository.save(newPost);
     }
 
@@ -50,7 +45,6 @@ public class BlogPostService {
         found.setContenuto(body.getContenuto());
         found.setCategoria(body.getCategoria());
         found.setTempoDiLettura(body.getTempoDiLettura());
-
         return blogPostRepository.save(found);
     }
 
