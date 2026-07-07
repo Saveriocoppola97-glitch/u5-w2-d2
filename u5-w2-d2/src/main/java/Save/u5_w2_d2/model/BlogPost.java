@@ -21,11 +21,11 @@ public class BlogPost {
     private String contenuto;
     private int tempoDiLettura;
 
-    // 1. Costruttore vuoto
+    // Costruttore vuoto
     public BlogPost() {
     }
 
-    // 2. Costruttore
+    // Costruttore
     public BlogPost(String categoria, String titolo, String cover, String contenuto, int tempoDiLettura) {
         this.categoria = categoria;
         this.titolo = titolo;
@@ -34,7 +34,7 @@ public class BlogPost {
         this.tempoDiLettura = tempoDiLettura;
     }
 
-    // 3. Getter e Setter (Clicca tasto destro -> Generate -> Getter and Setter)
+    // Getter e Setter
     public UUID getId() {
         return id;
     }
