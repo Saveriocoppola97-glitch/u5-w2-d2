@@ -19,9 +19,11 @@ public class Author {
     private String dataDiNascita;
     private String avatar;
 
+    // Costruttore vuoto
     public Author() {
     }
 
+    // Costruttore
     public Author(String nome, String cognome, String email, String dataDiNascita, String avatar) {
         this.nome = nome;
         this.cognome = cognome;
@@ -30,7 +32,7 @@ public class Author {
         this.avatar = avatar;
     }
 
-    // Getters e Setters
+    // Getter e Setter
     public UUID getId() {
         return id;
     }

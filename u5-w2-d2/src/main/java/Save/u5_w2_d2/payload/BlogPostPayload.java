@@ -9,7 +9,7 @@ public class BlogPostPayload {
     // Costruttore vuoto
     public BlogPostPayload() {}
 
-    // Costruttore completo
+    // Costruttore
     public BlogPostPayload(String categoria, String titolo, String contenuto, int tempoDiLettura) {
         this.categoria = categoria;
         this.titolo = titolo;

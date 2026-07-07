@@ -25,7 +25,7 @@ public class BlogPostController {
 
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED) // Ottima pratica usare 201 per la creazione
+    @ResponseStatus(HttpStatus.CREATED)
     public BlogPost save(@RequestBody BlogPostPayload body) {
         return blogPostService.save(body);
     }

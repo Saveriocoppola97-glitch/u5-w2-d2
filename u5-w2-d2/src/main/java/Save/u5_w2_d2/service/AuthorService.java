@@ -25,7 +25,7 @@ public class AuthorService {
 
     public Author findById(UUID id) {
         return authorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Autore non trovato"));
+                .orElseThrow(() -> new RuntimeException("Non trovato"));
     }
 
     public Author update(UUID id, Author body) {
