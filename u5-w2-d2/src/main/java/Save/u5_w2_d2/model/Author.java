@@ -30,7 +30,7 @@ public class Author {
         this.avatar = avatar;
     }
 
-    // Getters e Setters necessari
+    // Getters e Setters
     public UUID getId() {
         return id;
     }
